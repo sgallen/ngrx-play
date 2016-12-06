@@ -10,6 +10,7 @@ import { AppComponent } from './app.component';
 import {
     toDoReducer,
     TodoComponent,
+    ItemListComponent,
 } from './todo';
 
 const reducers = {
@@ -22,7 +23,8 @@ const store = StoreModule.provideStore({ reducers });
 @NgModule({
   declarations: [
     AppComponent,
-    TodoComponent
+    TodoComponent,
+    ItemListComponent
   ],
   imports: [
     BrowserModule,
