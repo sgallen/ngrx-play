@@ -1,22 +1,33 @@
 import { ActionReducer, Action } from '@ngrx/store';
 
 import { Item } from '../item.model';
+import { ADD_ITEM } from '../actions';
 
-import { ToDoState } from '../store';
+import { ToDoState } from './todo.state';
 
 
-// Reducer needs to be given an initial state.
+const item: Item = {
+    id: 1,
+    name: 'foo',
+    description: 'bar'
+};
+
 export const initialState: ToDoState = {
-    items: [],
+    items: [item],
     selectedItem: null,
 };
 
-// Setup the reducer.
 export const toDoReducer: ActionReducer<ToDoState> = (
     state: ToDoState = initialState,
     action: Action
 ) => {
     switch (action.type) {
+        case ADD_ITEM:
+            return Object.assign(
+                {},
+                state,
+                {items: [...state.items, action.payload]}
+            );
         default:
             return state;
     }

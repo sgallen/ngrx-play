@@ -6,32 +6,30 @@ import { StoreModule } from '@ngrx/store';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 
 import { AppComponent } from './app.component';
+import { TodoModule } from './todo/todo.module';
 
 import {
     toDoReducer,
-    TodoComponent,
-    ItemListComponent,
 } from './todo';
 
 const reducers = {
     todo: toDoReducer,
 };
 
-const store = StoreModule.provideStore({ reducers });
+const store = StoreModule.provideStore(reducers);
 
 
 @NgModule({
-  declarations: [
-    AppComponent,
-    TodoComponent,
-    ItemListComponent
-  ],
   imports: [
     BrowserModule,
     FormsModule,
     HttpModule,
     store,
-    StoreDevtoolsModule.instrumentOnlyWithExtension()
+    StoreDevtoolsModule.instrumentOnlyWithExtension(),
+    TodoModule,
+  ],
+  declarations: [
+    AppComponent,
   ],
   providers: [],
   bootstrap: [AppComponent]

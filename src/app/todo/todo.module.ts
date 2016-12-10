@@ -1,13 +1,25 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { TodoComponent } from './todo.component';
-import { ItemListComponent } from './components/item-list/item-list.component';
-import { ItemListComponent } from './components/item-list.component';
+
+import {
+    TodoComponent,
+    ItemListComponent,
+} from './components';
+import { ToDoActions } from './actions';
 
 @NgModule({
   imports: [
     CommonModule
   ],
-  declarations: [TodoComponent, ItemListComponent, ItemListComponent]
+  declarations: [
+    TodoComponent,
+    ItemListComponent,
+  ],
+  exports: [
+    TodoComponent,
+  ],
+  providers: [
+    ToDoActions,
+  ]
 })
 export class TodoModule { }

@@ -6,7 +6,7 @@ import { Observable } from 'rxjs';
 
 import { AppState } from '../../app.state';
 import { Item } from '../item.model';
-
+import { ToDoActions } from '../actions';
 
 @Component({
   selector: 'app-todo',
@@ -14,19 +14,20 @@ import { Item } from '../item.model';
   styleUrls: ['./todo.component.css']
 })
 export class TodoComponent implements OnInit {
-  _items: Observable<Array<Item>>;
 
   constructor(
-      private store: Store<AppState>
+      private store: Store<AppState>,
+      private toDoActions: ToDoActions
   ) {}
 
   ngOnInit() {
   }
 
   get items(): Observable<Array<Item>> {
-      this._items = this.store.select(s => s.todo.items);
-
-      return this._items;
+      return this.store.select(s => s.todo.items);
   }
 
+  addItem() {
+    this.toDoActions.addItem();
+  }
 }

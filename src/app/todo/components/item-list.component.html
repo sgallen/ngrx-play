@@ -1,4 +1,9 @@
 <div>
     item-list works!
-    <div *ngFor="let item of items">{{item}}</div>
+    <div *ngFor="let item of items">
+        ID: {{item.id}}
+        Name: {{item.name}}
+        Description: {{item.description}}
+        <hr/>
+    </div>
 </div>
