@@ -30,4 +30,8 @@ export class TodoComponent implements OnInit {
   addItem() {
     this.toDoActions.addItem();
   }
+
+  selectItem(item: Item) {
+    this.toDoActions.selectItem(item);
+  }
 }

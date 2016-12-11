@@ -8,6 +8,7 @@ import { Item } from '../item.model';
 
 
 export const ADD_ITEM = 'ADD_ITEM';
+export const SELECT_ITEM = 'SELECT_ITEM';
 
 @Injectable()
 export class ToDoActions {
@@ -20,5 +21,9 @@ export class ToDoActions {
             description: 'Mouthy luchador'
         };
         this.store.dispatch({type: ADD_ITEM, payload});
+    }
+
+    selectItem(item: Item) {
+        this.store.dispatch({type: SELECT_ITEM, payload: item});
     }
 }

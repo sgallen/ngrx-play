@@ -1,7 +1,10 @@
 import { ActionReducer, Action } from '@ngrx/store';
 
 import { Item } from '../item.model';
-import { ADD_ITEM } from '../actions';
+import {
+    ADD_ITEM,
+    SELECT_ITEM,
+} from '../actions';
 
 import { ToDoState } from './todo.state';
 
@@ -28,6 +31,8 @@ export const toDoReducer: ActionReducer<ToDoState> = (
                 state,
                 {items: [...state.items, action.payload]}
             );
+        case SELECT_ITEM:
+            return Object.assign({}, state, {selectedItem: action.payload});
         default:
             return state;
     }

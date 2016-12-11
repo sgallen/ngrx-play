@@ -1,6 +1,6 @@
 <button (click)="addItem()">Add Item</button>
 <div class="mdl-grid items">
   <div class="mdl-cell mdl-cell--6-col">
-    <app-item-list [items]="items | async"></app-item-list>
+    <app-item-list [items]="items | async" (selected)="selectItem($event)"></app-item-list>
   </div>
 </div>
