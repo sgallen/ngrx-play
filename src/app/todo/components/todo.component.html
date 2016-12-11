@@ -1,5 +1,6 @@
-<div>
-  todo works!
-  <app-item-list [items]="items | async"></app-item-list>
-  <button (click)="addItem()">Add Item</button>
+<button (click)="addItem()">Add Item</button>
+<div class="mdl-grid items">
+  <div class="mdl-cell mdl-cell--6-col">
+    <app-item-list [items]="items | async"></app-item-list>
+  </div>
 </div>
